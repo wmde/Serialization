@@ -29,7 +29,7 @@ spl_autoload_register( function ( $className ) {
 
 	$namespaceSegments = explode( '\\', $namespace );
 
-	if ( $namespaceSegments[0] === 'Serializer' || $namespaceSegments[0] === 'Deserializer' ) {
+	if ( $namespaceSegments[0] === 'Serializers' || $namespaceSegments[0] === 'Deserializers' ) {
 		if ( count( $namespaceSegments ) === 1 || $namespaceSegments[1] !== 'Tests' ) {
 			require_once __DIR__ . '/src/' . $fileName;
 		}
