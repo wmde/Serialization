@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/JeroenDeDauw/Serialization.png?branch=master)](http://travis-ci.org/JeroenDeDauw/Serialization)
+[![Build Status](https://secure.travis-ci.org/wikimedia/mediawiki-extensions-Serialization.png?branch=master)](http://travis-ci.org/wikimedia/mediawiki-extensions-Serialization)
 
 # Serialization
 
@@ -15,13 +15,13 @@ the git repository and take care of loading yourself.
 ### Composer
 
 To add this package as a local, per-project dependency to your project, simply add a
-dependency on `jeroen-de-dauw/serialization` to your project's `composer.json` file.
+dependency on `serialization/serialization` to your project's `composer.json` file.
 Here is a minimal example of a `composer.json` file that just defines a dependency on
 Serialization 1.0:
 
     {
         "require": {
-            "jeroen-de-dauw/serialization": "1.0.*"
+            "serialization/serialization": "1.0.*"
         }
     }
 
@@ -40,5 +40,5 @@ Serialization.php.
 
 ## Links
 
-* [Serialization on Packagist](https://packagist.org/packages/jeroen-de-dauw/serialization)
-* [Latest version of the readme file](https://github.com/JeroenDeDauw/Serialization/blob/master/README.md)
+* [Serialization on Packagist](https://packagist.org/packages/serialization/serialization)
+* [Latest version of the readme file](https://github.com/wikimedia/mediawiki-extensions-Serialization/blob/master/README.md)
