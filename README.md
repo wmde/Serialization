@@ -41,4 +41,5 @@ Serialization.php.
 ## Links
 
 * [Serialization on Packagist](https://packagist.org/packages/serialization/serialization)
+* [Serialization on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:Serialization)
 * [Latest version of the readme file](https://github.com/wikimedia/mediawiki-extensions-Serialization/blob/master/README.md)
