@@ -73,6 +73,8 @@ via TravisCI, as a TravisCI configuration file is also provided in the root dire
 
 ### 1.0
 
+2013-07-13
+
 * Initial release.
 
 ## Links

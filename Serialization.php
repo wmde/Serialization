@@ -11,7 +11,7 @@ if ( defined( 'Serialization_VERSION' ) ) {
 	return;
 }
 
-define( 'Serialization_VERSION', '1.0 alpha' );
+define( 'Serialization_VERSION', '1.0' );
 
 // @codeCoverageIgnoreStart
 spl_autoload_register( function ( $className ) {
