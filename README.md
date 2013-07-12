@@ -85,5 +85,7 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 ## Links
 
 * [Serialization on Packagist](https://packagist.org/packages/serialization/serialization)
+* [Serialization on Ohloh](https://www.ohloh.net/p/serialization-php)
 * [Serialization on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:Serialization)
+* [TravisCI build status](https://travis-ci.org/wikimedia/mediawiki-extensions-Serialization)
 * [Latest version of the readme file](https://github.com/wikimedia/mediawiki-extensions-Serialization/blob/master/README.md)
