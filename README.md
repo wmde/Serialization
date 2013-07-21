@@ -3,6 +3,7 @@
 [![Latest Stable Version](https://poser.pugx.org/serialization/serialization/version.png)](https://packagist.org/packages/serialization/serialization)
 [![Latest Stable Version](https://poser.pugx.org/serialization/serialization/d/total.png)](https://packagist.org/packages/serialization/serialization)
 [![Build Status](https://secure.travis-ci.org/wikimedia/mediawiki-extensions-Serialization.png?branch=master)](http://travis-ci.org/wikimedia/mediawiki-extensions-Serialization)
+[![Coverage Status](https://coveralls.io/repos/wikimedia/mediawiki-extensions-Serialization/badge.png?branch=master)](https://coveralls.io/r/wikimedia/mediawiki-extensions-Serialization?branch=master)
 
 Small library defining a Serializer and a Deserializer interface.
 
@@ -78,9 +79,7 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 ## Release notes
 
-### 1.0
-
-2013-07-13
+### 1.0 (2013-07-13)
 
 * Initial release.
 
