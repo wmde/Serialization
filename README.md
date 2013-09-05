@@ -1,9 +1,11 @@
 # Serialization
 
-[![Latest Stable Version](https://poser.pugx.org/serialization/serialization/version.png)](https://packagist.org/packages/serialization/serialization)
-[![Latest Stable Version](https://poser.pugx.org/serialization/serialization/d/total.png)](https://packagist.org/packages/serialization/serialization)
 [![Build Status](https://secure.travis-ci.org/wikimedia/mediawiki-extensions-Serialization.png?branch=master)](http://travis-ci.org/wikimedia/mediawiki-extensions-Serialization)
 [![Coverage Status](https://coveralls.io/repos/wikimedia/mediawiki-extensions-Serialization/badge.png?branch=master)](https://coveralls.io/r/wikimedia/mediawiki-extensions-Serialization?branch=master)
+
+On Packagist:
+[![Latest Stable Version](https://poser.pugx.org/serialization/serialization/version.png)](https://packagist.org/packages/serialization/serialization)
+[![Download count](https://poser.pugx.org/serialization/serialization/d/total.png)](https://packagist.org/packages/serialization/serialization)
 
 Small library defining a Serializer and a Deserializer interface.
 
