@@ -81,6 +81,11 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 ## Release notes
 
+### 2.0 (2013-09-05)
+
+* Renamed Serializer::canSerialize to Serializer::isDeserializerFor
+* Renamed Deserializer::canDeserialize to Deserializer::isDeserializerFor
+
 ### 1.0 (2013-07-13)
 
 * Initial release.

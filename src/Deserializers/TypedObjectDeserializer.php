@@ -34,7 +34,7 @@ abstract class TypedObjectDeserializer implements Deserializer {
 		}
 	}
 
-	public function canDeserialize( $serialization ) {
+	public function isDeserializerFor( $serialization ) {
 		return $this->hasObjectType( $serialization ) && $this->hasCorrectObjectType( $serialization );
 	}
 

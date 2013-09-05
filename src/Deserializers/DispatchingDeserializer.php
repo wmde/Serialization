@@ -39,7 +39,7 @@ class DispatchingDeserializer implements Deserializer {
 
 	public function deserialize( $serialization ) {
 		foreach ( $this->deserializers as $deserializer ) {
-			if ( $deserializer->canDeserialize( $serialization ) ) {
+			if ( $deserializer->isDeserializerFor( $serialization ) ) {
 				return $deserializer->deserialize( $serialization );
 			}
 		}
@@ -49,9 +49,9 @@ class DispatchingDeserializer implements Deserializer {
 		);
 	}
 
-	public function canDeserialize( $serialization ) {
+	public function isDeserializerFor( $serialization ) {
 		foreach ( $this->deserializers as $deserializer ) {
-			if ( $deserializer->canDeserialize( $serialization ) ) {
+			if ( $deserializer->isDeserializerFor( $serialization ) ) {
 				return true;
 			}
 		}

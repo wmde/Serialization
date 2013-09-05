@@ -29,6 +29,6 @@ interface Serializer {
 	 *
 	 * @return boolean
 	 */
-	public function canSerialize( $object );
+	public function isSerializerFor( $object );
 
 }

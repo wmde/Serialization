@@ -2,8 +2,15 @@
 	"name": "serialization/serialization",
 	"type": "library",
 	"description": "library defining a Serializer and a Deserializer interface and basic utilities",
-	"keywords": ["serialization", "deserialization", "unserialization", "serializer", "deserializer", "wikidata"],
-	"homepage": "https://www.mediawiki.org/wiki/Extension:Serialization",
+	"keywords": [
+		"serialization",
+		"deserialization",
+		"unserialization",
+		"serializer",
+		"deserializer",
+		"wikidata"
+	],
+	"homepage": "https://github.com/wikimedia/mediawiki-extensions-Serialization",
 	"license": "GPL-2.0+",
 	"authors": [
 		{

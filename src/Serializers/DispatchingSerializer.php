@@ -39,7 +39,7 @@ class DispatchingSerializer implements Serializer {
 
 	public function serialize( $object ) {
 		foreach ( $this->serializers as $serializer ) {
-			if ( $serializer->canSerialize( $object ) ) {
+			if ( $serializer->isSerializerFor( $object ) ) {
 				return $serializer->serialize( $object );
 			}
 		}
@@ -47,9 +47,9 @@ class DispatchingSerializer implements Serializer {
 		throw new UnsupportedObjectException( $object );
 	}
 
-	public function canSerialize( $object ) {
+	public function isSerializerFor( $object ) {
 		foreach ( $this->serializers as $serializer ) {
-			if ( $serializer->canSerialize( $object ) ) {
+			if ( $serializer->isSerializerFor( $object ) ) {
 				return true;
 			}
 		}
