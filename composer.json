@@ -10,7 +10,7 @@
 		"deserializer",
 		"wikidata"
 	],
-	"homepage": "https://github.com/wikimedia/mediawiki-extensions-Serialization",
+	"homepage": "https://github.com/wmde/Serialization",
 	"license": "GPL-2.0+",
 	"authors": [
 		{
@@ -22,9 +22,7 @@
 	],
 	"support": {
 		"issues": "https://bugzilla.wikimedia.org/",
-		"irc": "irc://irc.freenode.net/wikimedia-wikidata",
-		"forum": "https://www.mediawiki.org/wiki/Extension_talk:Serialization",
-		"wiki": "https://www.mediawiki.org/wiki/Extension:Serialization"
+		"irc": "irc://irc.freenode.net/wikimedia-wikidata"
 	},
 	"require": {
 		"php": ">=5.3.0"
