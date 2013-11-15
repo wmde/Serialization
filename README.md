@@ -1,7 +1,7 @@
 # Serialization
 
-[![Build Status](https://secure.travis-ci.org/wikimedia/mediawiki-extensions-Serialization.png?branch=master)](http://travis-ci.org/wikimedia/mediawiki-extensions-Serialization)
-[![Coverage Status](https://coveralls.io/repos/wikimedia/mediawiki-extensions-Serialization/badge.png?branch=master)](https://coveralls.io/r/wikimedia/mediawiki-extensions-Serialization?branch=master)
+[![Build Status](https://secure.travis-ci.org/wmde/Serialization.png?branch=master)](http://travis-ci.org/wmde/Serialization)
+[![Coverage Status](https://coveralls.io/repos/wmde/Serialization/badge.png?branch=master)](https://coveralls.io/r/wmde/Serialization?branch=master)
 
 On Packagist:
 [![Latest Stable Version](https://poser.pugx.org/serialization/serialization/version.png)](https://packagist.org/packages/serialization/serialization)
@@ -94,6 +94,5 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 * [Serialization on Packagist](https://packagist.org/packages/serialization/serialization)
 * [Serialization on Ohloh](https://www.ohloh.net/p/serialization-php)
-* [Serialization on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:Serialization)
-* [TravisCI build status](https://travis-ci.org/wikimedia/mediawiki-extensions-Serialization)
-* [Latest version of the readme file](https://github.com/wikimedia/mediawiki-extensions-Serialization/blob/master/README.md)
+* [TravisCI build status](https://travis-ci.org/wmde/Serialization)
+
