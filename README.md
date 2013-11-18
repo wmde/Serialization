@@ -1,7 +1,8 @@
 # Serialization
 
 [![Build Status](https://secure.travis-ci.org/wmde/Serialization.png?branch=master)](http://travis-ci.org/wmde/Serialization)
-[![Coverage Status](https://coveralls.io/repos/wmde/Serialization/badge.png?branch=master)](https://coveralls.io/r/wmde/Serialization?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/wmde/Serialization/badges/coverage.png?s=c1db04f88f763f63dc0f0d8315cf9b8491fc81e6)](https://scrutinizer-ci.com/g/wmde/Serialization/)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/wmde/Serialization/badges/quality-score.png?s=d25b9d7cbc4a737817ebf072d2e4b55b0bd8b662)](https://scrutinizer-ci.com/g/wmde/Serialization/)
 
 On Packagist:
 [![Latest Stable Version](https://poser.pugx.org/serialization/serialization/version.png)](https://packagist.org/packages/serialization/serialization)
