@@ -7,10 +7,6 @@ use Serializers\DispatchingSerializer;
 /**
  * @covers Serializers\DispatchingSerializer
  *
- * @file
- * @since 1.0
- *
- * @ingroup Serialization
  * @group Serialization
  *
  * @licence GNU GPL v2+

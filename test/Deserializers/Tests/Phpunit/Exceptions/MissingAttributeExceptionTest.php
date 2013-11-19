@@ -7,10 +7,6 @@ use Deserializers\Exceptions\MissingAttributeException;
 /**
  * @covers Deserializers\Exceptions\MissingAttributeException
  *
- * @file
- * @since 1.0
- *
- * @ingroup Serialization
  * @group Serialization
  *
  * @licence GNU GPL v2+

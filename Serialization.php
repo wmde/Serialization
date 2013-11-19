@@ -1,17 +1,11 @@
 <?php
 
-/**
- * This documentation group collects source code files belonging to the Serialization library.
- *
- * @defgroup Serialization Serialization
- */
-
 if ( defined( 'Serialization_VERSION' ) ) {
 	// Do not initialize more then once.
-	return;
+	return 1;
 }
 
-define( 'Serialization_VERSION', '2.0' );
+define( 'Serialization_VERSION', '2.1' );
 
 // @codeCoverageIgnoreStart
 spl_autoload_register( function ( $className ) {

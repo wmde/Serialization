@@ -10,18 +10,18 @@ use Deserializers\Exceptions\UnsupportedTypeException;
 /**
  * @since 1.0
  *
- * @file
- * @ingroup Serialization
- *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class TypedObjectDeserializer implements Deserializer {
 
 	protected $objectType;
+	private $typeKey;
 
-	public function __construct( $objectType ) {
+	public function __construct( $objectType, $typeKey = 'objectType' ) {
 		$this->objectType = $objectType;
+		$this->typeKey = $typeKey;
+
 	}
 
 	protected function assertCanDeserialize( $serialization ) {
@@ -30,7 +30,7 @@ abstract class TypedObjectDeserializer implements Deserializer {
 		}
 
 		if ( !$this->hasCorrectObjectType( $serialization ) ) {
-			throw new UnsupportedTypeException( $serialization['objectType'] );
+			throw new UnsupportedTypeException( $serialization[$this->typeKey] );
 		}
 	}
 
@@ -39,12 +39,12 @@ abstract class TypedObjectDeserializer implements Deserializer {
 	}
 
 	private function hasCorrectObjectType( $serialization ) {
-		return $serialization['objectType'] === $this->objectType;
+		return $serialization[$this->typeKey] === $this->objectType;
 	}
 
 	private function hasObjectType( $serialization ) {
 		return is_array( $serialization )
-			&& array_key_exists( 'objectType', $serialization );
+			&& array_key_exists( $this->typeKey, $serialization );
 	}
 
 	protected function requireAttributes( array $array ) {
