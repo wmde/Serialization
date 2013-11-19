@@ -82,6 +82,12 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 ## Release notes
 
+### 2.1 (2013-11-19)
+
+* The type key in TypedObjectDeserializer can now be specified via a constructor argument
+* TypedObjectDeserializer now has some tests in this component itself
+* The documentation was somewhat improved
+
 ### 2.0 (2013-09-05)
 
 * Renamed Serializer::canSerialize to Serializer::isDeserializerFor
