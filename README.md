@@ -39,8 +39,8 @@ Serialization 1.0:
 
 Get the Serialization code, either via git, or some other means. Also get all dependencies.
 You can find a list of the dependencies in the "require" section of the composer.json file.
-Load all dependencies and the load the Serialization library by including its entry point:
-Serialization.php.
+This file also specifies how the resources provided by this library should be loaded, in
+its "autoload" section.
 
 ## Usage
 
@@ -81,6 +81,10 @@ Serialization has been written by [Jeroen De Dauw](https://www.mediawiki.org/wik
 as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project](https://wikidata.org/).
 
 ## Release notes
+
+### 2.2 (2013-12-11)
+
+* Remove custom autoloader in favour of using the declarative system provided by Composer.
 
 ### 2.1 (2013-11-19)
 
