@@ -2,8 +2,6 @@
 
 namespace Deserializers;
 
-use Deserializers\TypedDeserializationStrategy;
-
 /**
  * @since 1.0
  *
