@@ -31,7 +31,7 @@ class DispatchingSerializerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanSerialize() {
-		$subSerializer = $this->getMock( 'Serializers\Serializer' );
+		$subSerializer = $this->getMock( 'Serializers\DispatchableSerializer' );
 
 		$subSerializer->expects( $this->exactly( 4 ) )
 			->method( 'isSerializerFor' )
@@ -48,7 +48,7 @@ class DispatchingSerializerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testSerializeWithSerializableValues() {
-		$subSerializer = $this->getMock( 'Serializers\Serializer' );
+		$subSerializer = $this->getMock( 'Serializers\DispatchableSerializer' );
 
 		$subSerializer->expects( $this->any() )
 			->method( 'isSerializerFor' )
@@ -65,7 +65,7 @@ class DispatchingSerializerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testSerializeWithUnserializableValue() {
-		$subSerializer = $this->getMock( 'Serializers\Serializer' );
+		$subSerializer = $this->getMock( 'Serializers\DispatchableSerializer' );
 
 		$subSerializer->expects( $this->once() )
 			->method( 'isSerializerFor' )
@@ -78,7 +78,7 @@ class DispatchingSerializerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testSerializeWithMultipleSubSerializers() {
-		$subSerializer0 = $this->getMock( 'Serializers\Serializer' );
+		$subSerializer0 = $this->getMock( 'Serializers\DispatchableSerializer' );
 
 		$subSerializer0->expects( $this->any() )
 			->method( 'isSerializerFor' )
@@ -88,7 +88,7 @@ class DispatchingSerializerTest extends \PHPUnit_Framework_TestCase {
 			->method( 'serialize' )
 			->will( $this->returnValue( 42 ) );
 
-		$subSerializer1 = $this->getMock( 'Serializers\Serializer' );
+		$subSerializer1 = $this->getMock( 'Serializers\DispatchableSerializer' );
 
 		$subSerializer1->expects( $this->any() )
 			->method( 'isSerializerFor' )
@@ -104,7 +104,7 @@ class DispatchingSerializerTest extends \PHPUnit_Framework_TestCase {
 	public function testAddSerializer() {
 		$serializer = new DispatchingSerializer( array() );
 
-		$subSerializer = $this->getMock( 'Serializers\Serializer' );
+		$subSerializer = $this->getMock( 'Serializers\DispatchableSerializer' );
 
 		$subSerializer->expects( $this->any() )
 			->method( 'isSerializerFor' )

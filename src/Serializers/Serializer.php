@@ -22,13 +22,4 @@ interface Serializer {
 	 */
 	public function serialize( $object );
 
-	/**
-	 * @since 1.0
-	 *
-	 * @param mixed $object
-	 *
-	 * @return boolean
-	 */
-	public function isSerializerFor( $object );
-
 }

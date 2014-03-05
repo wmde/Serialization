@@ -82,9 +82,15 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 ## Release notes
 
+### 3.0 (2014-03-05)
+
+* Split is(Des/S)erializerFor methods off into new Dispatching(Des/S)erializer interfaces
+* Changed from classmap based autoloading to PSR-4 based autoloading
+* Improved PHPUnit bootstrap
+
 ### 2.2 (2013-12-11)
 
-* Remove custom autoloader in favour of using the declarative system provided by Composer.
+* Removed custom autoloader in favour of using the declarative system provided by Composer
 
 ### 2.1 (2013-11-19)
 
