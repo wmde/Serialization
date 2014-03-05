@@ -27,11 +27,11 @@ the git repository and take care of loading yourself.
 To add this package as a local, per-project dependency to your project, simply add a
 dependency on `serialization/serialization` to your project's `composer.json` file.
 Here is a minimal example of a `composer.json` file that just defines a dependency on
-Serialization 1.0:
+Serialization 3.0:
 
     {
         "require": {
-            "serialization/serialization": "1.0.*"
+            "serialization/serialization": "3.0.*"
         }
     }
 
@@ -75,6 +75,11 @@ This library comes with a set up PHPUnit tests that cover all non-trivial code. 
 tests using the PHPUnit configuration file found in the root directory. The tests can also be run
 via TravisCI, as a TravisCI configuration file is also provided in the root directory.
 
+The library contains some code that was split factored out of concrete classes part of
+[AskSerialization](https://github.com/wmde/AskSerialization). Those tests have not been
+split, hence the low apparent coverage. It is recommended to run the AskSerialization
+tests when making changes to the code in question.
+
 ## Authors
 
 Serialization has been written by [Jeroen De Dauw](https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw)
@@ -112,4 +117,5 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 * [Serialization on Packagist](https://packagist.org/packages/serialization/serialization)
 * [Serialization on Ohloh](https://www.ohloh.net/p/serialization-php)
 * [TravisCI build status](https://travis-ci.org/wmde/Serialization)
+* [Serialization on ScrutinizerCI](https://scrutinizer-ci.com/g/wmde/Serialization/)
 
