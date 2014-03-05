@@ -21,7 +21,6 @@
 		}
 	],
 	"support": {
-		"issues": "https://bugzilla.wikimedia.org/",
 		"irc": "irc://irc.freenode.net/wikidata"
 	},
 	"require": {
