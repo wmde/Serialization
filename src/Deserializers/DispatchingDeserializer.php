@@ -11,15 +11,15 @@ use InvalidArgumentException;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class DispatchingDeserializer implements Deserializer {
+class DispatchingDeserializer implements DispatchableDeserializer {
 
 	/**
-	 * @var Deserializer[]
+	 * @var DispatchableDeserializer[]
 	 */
 	protected $deserializers;
 
 	/**
-	 * @param Deserializer[] $deserializers
+	 * @param DispatchableDeserializer[] $deserializers
 	 */
 	public function __construct( array $deserializers = array() ) {
 		$this->assertAreDeserializers( $deserializers );
@@ -28,8 +28,10 @@ class DispatchingDeserializer implements Deserializer {
 
 	protected function assertAreDeserializers( array $deserializers ) {
 		foreach ( $deserializers as $deserializer ) {
-			if ( !is_object( $deserializer ) || !( $deserializer instanceof Deserializer ) ) {
-				throw new InvalidArgumentException( 'All $deserializers need to implement the Deserializer interface' );
+			if ( !is_object( $deserializer ) || !( $deserializer instanceof DispatchableDeserializer ) ) {
+				throw new InvalidArgumentException(
+					'All $deserializers need to implement the DispatchableDeserializer interface'
+				);
 			}
 		}
 	}
@@ -57,11 +59,11 @@ class DispatchingDeserializer implements Deserializer {
 	}
 
 	/**
-	 * @since 1.0
+	 * @since 3.0
 	 *
-	 * @param Deserializer $serializer
+	 * @param DispatchableDeserializer $serializer
 	 */
-	public function addDeserializer( Deserializer $serializer ) {
+	public function addDeserializer( DispatchableDeserializer $serializer ) {
 		$this->deserializers[] = $serializer;
 	}
 

@@ -11,15 +11,15 @@ use Serializers\Exceptions\UnsupportedObjectException;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class DispatchingSerializer implements Serializer {
+class DispatchingSerializer implements DispatchableSerializer {
 
 	/**
-	 * @var Serializer[]
+	 * @var DispatchableSerializer[]
 	 */
 	protected $serializers;
 
 	/**
-	 * @param Serializer[] $serializers
+	 * @param DispatchableSerializer[] $serializers
 	 */
 	public function __construct( array $serializers = array() ) {
 		$this->assertAreSerializers( $serializers );
@@ -28,8 +28,10 @@ class DispatchingSerializer implements Serializer {
 
 	protected function assertAreSerializers( array $serializers ) {
 		foreach ( $serializers as $serializer ) {
-			if ( !( $serializer instanceof Serializer ) ) {
-				throw new InvalidArgumentException( 'Got an object that is not an instance of Serializers\Serializer' );
+			if ( !( $serializer instanceof DispatchableSerializer ) ) {
+				throw new InvalidArgumentException(
+					'Got an object that is not an instance of DispatchableSerializer'
+				);
 			}
 		}
 	}
@@ -55,11 +57,11 @@ class DispatchingSerializer implements Serializer {
 	}
 
 	/**
-	 * @since 1.0
+	 * @since 3.0
 	 *
-	 * @param Serializer $serializer
+	 * @param DispatchableSerializer $serializer
 	 */
-	public function addSerializer( Serializer $serializer ) {
+	public function addSerializer( DispatchableSerializer $serializer ) {
 		$this->serializers[] = $serializer;
 	}
 

@@ -22,15 +22,4 @@ interface Deserializer {
 	 */
 	public function deserialize( $serialization );
 
-	/**
-	 * Returns if the deserializer can deserialize the provided object.
-	 *
-	 * @since 1.0
-	 *
-	 * @param mixed $serialization
-	 *
-	 * @return boolean
-	 */
-	public function isDeserializerFor( $serialization );
-
 }

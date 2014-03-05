@@ -25,7 +25,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanDeserialize() {
-		$subDeserializer = $this->getMock( 'Deserializers\Deserializer' );
+		$subDeserializer = $this->getMock( 'Deserializers\DispatchableDeserializer' );
 
 		$subDeserializer->expects( $this->exactly( 4 ) )
 			->method( 'isDeserializerFor' )
@@ -42,7 +42,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testDeserializeWithDeserializableValues() {
-		$subDeserializer = $this->getMock( 'Deserializers\Deserializer' );
+		$subDeserializer = $this->getMock( 'Deserializers\DispatchableDeserializer' );
 
 		$subDeserializer->expects( $this->any() )
 			->method( 'isDeserializerFor' )
@@ -59,7 +59,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testSerializeWithUnserializableValue() {
-		$subDeserializer = $this->getMock( 'Deserializers\Deserializer' );
+		$subDeserializer = $this->getMock( 'Deserializers\DispatchableDeserializer' );
 
 		$subDeserializer->expects( $this->once() )
 			->method( 'isDeserializerFor' )
@@ -72,7 +72,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testSerializeWithMultipleSubSerializers() {
-		$subDeserializer0 = $this->getMock( 'Deserializers\Deserializer' );
+		$subDeserializer0 = $this->getMock( 'Deserializers\DispatchableDeserializer' );
 
 		$subDeserializer0->expects( $this->any() )
 			->method( 'isDeserializerFor' )
@@ -82,7 +82,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 			->method( 'deserialize' )
 			->will( $this->returnValue( 42 ) );
 
-		$subDeserializer1 = $this->getMock( 'Deserializers\Deserializer' );
+		$subDeserializer1 = $this->getMock( 'Deserializers\DispatchableDeserializer' );
 
 		$subDeserializer1->expects( $this->any() )
 			->method( 'isDeserializerFor' )
@@ -98,7 +98,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 	public function testAddSerializer() {
 		$deserializer = new DispatchingDeserializer( array() );
 
-		$subDeserializer = $this->getMock( 'Deserializers\Deserializer' );
+		$subDeserializer = $this->getMock( 'Deserializers\DispatchableDeserializer' );
 
 		$subDeserializer->expects( $this->any() )
 			->method( 'isDeserializerFor' )

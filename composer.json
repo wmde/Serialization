@@ -31,8 +31,9 @@
 		"files" : [
 			"Serialization.php"
 		],
-		"classmap": [
-			"src/"
-		]
+		"psr-4": {
+			"Deserializers\\": "src/Deserializers/",
+			"Serializers\\": "src/Serializers/"
+		}
 	}
 }
