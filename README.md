@@ -87,9 +87,13 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 ## Release notes
 
+### 3.1 (2014-03-18)
+
+* TypedObjectDeserializer now explicitly implements DispatchableDeserializer.
+
 ### 3.0 (2014-03-05)
 
-* Split is(Des/S)erializerFor methods off into new Dispatching(Des/S)erializer interfaces
+* Split is(Des/S)erializerFor methods off into new Dispatchable(Des/S)erializer interfaces
 * Changed from classmap based autoloading to PSR-4 based autoloading
 * Improved PHPUnit bootstrap
 
