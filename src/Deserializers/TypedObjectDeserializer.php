@@ -13,7 +13,7 @@ use Deserializers\Exceptions\UnsupportedTypeException;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class TypedObjectDeserializer implements Deserializer {
+abstract class TypedObjectDeserializer implements DispatchableDeserializer {
 
 	protected $objectType;
 	private $typeKey;
