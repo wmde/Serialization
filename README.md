@@ -87,6 +87,10 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 ## Release notes
 
+### 3.2 (2014-05-20)
+
+* Made SerializationException non-abstract
+
 ### 3.1 (2014-03-18)
 
 * TypedObjectDeserializer now explicitly implements DispatchableDeserializer.
