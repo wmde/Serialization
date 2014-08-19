@@ -5,4 +5,4 @@ if ( defined( 'Serialization_VERSION' ) ) {
 	return 1;
 }
 
-define( 'Serialization_VERSION', '3.2' );
+define( 'Serialization_VERSION', '3.2.1' );

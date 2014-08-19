@@ -7,8 +7,6 @@ use Deserializers\Exceptions\DeserializationException;
 /**
  * @covers Deserializers\Exceptions\DeserializationException
  *
- * @group Serialization
- *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */

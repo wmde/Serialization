@@ -7,8 +7,6 @@ use Deserializers\Exceptions\MissingTypeException;
 /**
  * @covers Deserializers\Exceptions\MissingTypeException
  *
- * @group Serialization
- *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */

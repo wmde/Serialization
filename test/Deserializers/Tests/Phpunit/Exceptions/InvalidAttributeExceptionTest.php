@@ -7,8 +7,6 @@ use Deserializers\Exceptions\InvalidAttributeException;
 /**
  * @covers Deserializers\Exceptions\InvalidAttributeException
  *
- * @group Serialization
- *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */

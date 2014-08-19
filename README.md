@@ -87,6 +87,11 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 ## Release notes
 
+### 3.2.1 (2014-08-19)
+
+* Tested against hhvm-nightly
+* Tests now run in strict mode
+
 ### 3.2 (2014-05-20)
 
 * Made SerializationException non-abstract
