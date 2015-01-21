@@ -27,11 +27,11 @@ the git repository and take care of loading yourself.
 To add this package as a local, per-project dependency to your project, simply add a
 dependency on `serialization/serialization` to your project's `composer.json` file.
 Here is a minimal example of a `composer.json` file that just defines a dependency on
-Serialization 3.0:
+Serialization 3.x:
 
     {
         "require": {
-            "serialization/serialization": "3.0.*"
+            "serialization/serialization": "~3.0"
         }
     }
 
