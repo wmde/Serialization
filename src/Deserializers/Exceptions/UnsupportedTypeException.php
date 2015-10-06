@@ -2,6 +2,8 @@
 
 namespace Deserializers\Exceptions;
 
+use Exception;
+
 /**
  * Indicates the objectType specified in the serialization is not supported by a deserializer.
  *
@@ -17,9 +19,9 @@ class UnsupportedTypeException extends DeserializationException {
 	/**
 	 * @param mixed $unsupportedType
 	 * @param string $message
-	 * @param \Exception $previous
+	 * @param Exception|null $previous
 	 */
-	public function __construct( $unsupportedType, $message = '', \Exception $previous = null ) {
+	public function __construct( $unsupportedType, $message = '', Exception $previous = null ) {
 		$this->unsupportedType = $unsupportedType;
 
 		parent::__construct( $message, $previous );

@@ -2,6 +2,8 @@
 
 namespace Deserializers\Exceptions;
 
+use Exception;
+
 /**
  * @since 1.0
  *
@@ -15,9 +17,9 @@ class MissingAttributeException extends DeserializationException {
 	/**
 	 * @param string $attributeName
 	 * @param string $message
-	 * @param \Exception $previous
+	 * @param Exception|null $previous
 	 */
-	public function __construct( $attributeName, $message = '', \Exception $previous = null ) {
+	public function __construct( $attributeName, $message = '', Exception $previous = null ) {
 		$this->attributeName = $attributeName;
 
 		parent::__construct( $message, $previous );

@@ -2,6 +2,8 @@
 
 namespace Deserializers\Exceptions;
 
+use Exception;
+
 /**
  * @since 1.0
  *
@@ -17,9 +19,14 @@ class InvalidAttributeException extends DeserializationException {
 	 * @param string $attributeName
 	 * @param mixed $attributeValue
 	 * @param string $message
-	 * @param \Exception $previous
+	 * @param Exception|null $previous
 	 */
-	public function __construct( $attributeName, $attributeValue, $message = '', \Exception $previous = null ) {
+	public function __construct(
+		$attributeName,
+		$attributeValue,
+		$message = '',
+		Exception $previous = null
+	) {
 		$this->attributeName = $attributeName;
 		$this->attributeValue = $attributeValue;
 
