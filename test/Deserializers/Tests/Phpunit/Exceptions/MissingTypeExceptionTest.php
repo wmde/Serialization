@@ -3,28 +3,31 @@
 namespace Deserializers\Tests\Phpunit\Exceptions;
 
 use Deserializers\Exceptions\MissingTypeException;
+use Exception;
+use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Deserializers\Exceptions\MissingTypeException
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ * @author Thiemo Mättig
  */
-class MissingTypeExceptionTest extends \PHPUnit_Framework_TestCase {
+class MissingTypeExceptionTest extends PHPUnit_Framework_TestCase {
 
 	public function testConstructorWithOnlyRequiredArguments() {
-		new MissingTypeException();
-		$this->assertTrue( true );
+		$exception = new MissingTypeException();
+
+		$this->assertSame( '', $exception->getMessage() );
+		$this->assertNull( $exception->getPrevious() );
 	}
 
 	public function testConstructorWithAllArguments() {
-		$message = 'NyanData all the way across the sky!';
-		$previous = new \Exception( 'Onoez!' );
+		$previous = new Exception( 'previous' );
+		$exception = new MissingTypeException( 'customMessage', $previous );
 
-		$exception = new MissingTypeException( $message, $previous );
-
-		$this->assertEquals( $message, $exception->getMessage() );
-		$this->assertEquals( $previous, $exception->getPrevious() );
+		$this->assertSame( 'customMessage', $exception->getMessage() );
+		$this->assertSame( $previous, $exception->getPrevious() );
 	}
 
 }
