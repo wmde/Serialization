@@ -3,37 +3,33 @@
 namespace Deserializers\Tests\Phpunit\Exceptions;
 
 use Deserializers\Exceptions\MissingAttributeException;
+use Exception;
+use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Deserializers\Exceptions\MissingAttributeException
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ * @author Thiemo Mättig
  */
-class MissingAttributeExceptionTest extends \PHPUnit_Framework_TestCase {
+class MissingAttributeExceptionTest extends PHPUnit_Framework_TestCase {
 
 	public function testConstructorWithOnlyRequiredArguments() {
-		$attributeName = 'theGame';
+		$exception = new MissingAttributeException( 'attribute' );
 
-		$exception = new MissingAttributeException( $attributeName );
-
-		$this->assertRequiredFieldsAreSet( $exception, $attributeName );
+		$this->assertSame( 'attribute', $exception->getAttributeName() );
+		$this->assertSame( 'Attribute "attribute" is missing', $exception->getMessage() );
+		$this->assertNull( $exception->getPrevious() );
 	}
 
 	public function testConstructorWithAllArguments() {
-		$attributeName = 'theGame';
-		$message = 'NyanData all the way across the sky!';
-		$previous = new \Exception( 'Onoez!' );
+		$previous = new Exception( 'previous' );
+		$exception = new MissingAttributeException( 'attribute', 'customMessage', $previous );
 
-		$exception = new MissingAttributeException( $attributeName, $message, $previous );
-
-		$this->assertRequiredFieldsAreSet( $exception, $attributeName );
-		$this->assertEquals( $message, $exception->getMessage() );
-		$this->assertEquals( $previous, $exception->getPrevious() );
-	}
-
-	protected function assertRequiredFieldsAreSet( MissingAttributeException $exception, $attributeName ) {
-		$this->assertEquals( $attributeName, $exception->getAttributeName() );
+		$this->assertSame( 'attribute', $exception->getAttributeName() );
+		$this->assertSame( 'customMessage', $exception->getMessage() );
+		$this->assertSame( $previous, $exception->getPrevious() );
 	}
 
 }

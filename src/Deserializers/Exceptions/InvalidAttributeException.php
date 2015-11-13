@@ -9,6 +9,7 @@ use Exception;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ * @author Thiemo Mättig
  */
 class InvalidAttributeException extends DeserializationException {
 
@@ -29,6 +30,16 @@ class InvalidAttributeException extends DeserializationException {
 	) {
 		$this->attributeName = $attributeName;
 		$this->attributeValue = $attributeValue;
+
+		if ( $message === '' ) {
+			$message = 'Attribute "' . $attributeName . '"';
+
+			if ( is_scalar( $attributeValue ) ) {
+				$message .= ' with value "' . $attributeValue . '"';
+			}
+
+			$message .= ' is invalid';
+		}
 
 		parent::__construct( $message, $previous );
 	}

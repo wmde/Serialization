@@ -3,37 +3,33 @@
 namespace Deserializers\Tests\Phpunit\Exceptions;
 
 use Deserializers\Exceptions\UnsupportedTypeException;
+use Exception;
+use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Deserializers\Exceptions\UnsupportedTypeException
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ * @author Thiemo Mättig
  */
-class UnsupportedTypeExceptionTest extends \PHPUnit_Framework_TestCase {
+class UnsupportedTypeExceptionTest extends PHPUnit_Framework_TestCase {
 
 	public function testConstructorWithOnlyRequiredArguments() {
-		$unsupportedType = 'fooBarBaz';
+		$exception = new UnsupportedTypeException( 'type' );
 
-		$exception = new UnsupportedTypeException( $unsupportedType );
-
-		$this->assertRequiredFieldsAreSet( $exception, $unsupportedType );
+		$this->assertSame( 'type', $exception->getUnsupportedType() );
+		$this->assertSame( 'Type "type" is unsupported', $exception->getMessage() );
+		$this->assertNull( $exception->getPrevious() );
 	}
 
 	public function testConstructorWithAllArguments() {
-		$unsupportedType = 'fooBarBaz';
-		$message = 'NyanData all the way across the sky!';
-		$previous = new \Exception( 'Onoez!' );
+		$previous = new Exception( 'previous' );
+		$exception = new UnsupportedTypeException( 'type', 'customMessage', $previous );
 
-		$exception = new UnsupportedTypeException( $unsupportedType, $message, $previous );
-
-		$this->assertRequiredFieldsAreSet( $exception, $unsupportedType );
-		$this->assertEquals( $message, $exception->getMessage() );
-		$this->assertEquals( $previous, $exception->getPrevious() );
-	}
-
-	protected function assertRequiredFieldsAreSet( UnsupportedTypeException $exception, $unsupportedType ) {
-		$this->assertEquals( $unsupportedType, $exception->getUnsupportedType() );
+		$this->assertSame( 'type', $exception->getUnsupportedType() );
+		$this->assertSame( 'customMessage', $exception->getMessage() );
+		$this->assertSame( $previous, $exception->getPrevious() );
 	}
 
 }

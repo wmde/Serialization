@@ -9,6 +9,7 @@ use Exception;
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ * @author Thiemo Mättig
  */
 class MissingAttributeException extends DeserializationException {
 
@@ -21,6 +22,10 @@ class MissingAttributeException extends DeserializationException {
 	 */
 	public function __construct( $attributeName, $message = '', Exception $previous = null ) {
 		$this->attributeName = $attributeName;
+
+		if ( $message === '' ) {
+			$message = 'Attribute "' . $attributeName . '" is missing';
+		}
 
 		parent::__construct( $message, $previous );
 	}

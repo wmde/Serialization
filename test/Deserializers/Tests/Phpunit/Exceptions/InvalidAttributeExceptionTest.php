@@ -3,40 +3,37 @@
 namespace Deserializers\Tests\Phpunit\Exceptions;
 
 use Deserializers\Exceptions\InvalidAttributeException;
+use Exception;
+use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Deserializers\Exceptions\InvalidAttributeException
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ * @author Thiemo Mättig
  */
-class InvalidAttributeExceptionTest extends \PHPUnit_Framework_TestCase {
+class InvalidAttributeExceptionTest extends PHPUnit_Framework_TestCase {
 
 	public function testConstructorWithOnlyRequiredArguments() {
-		$attributeName = 'theGame';
-		$attributeValue = 'youJustLostIt';
+		$exception = new InvalidAttributeException( 'attribute', 'value' );
 
-		$exception = new InvalidAttributeException( $attributeName, $attributeValue );
-
-		$this->assertRequiredFieldsAreSet( $exception, $attributeName, $attributeValue );
+		$this->assertSame( 'attribute', $exception->getAttributeName() );
+		$this->assertSame( 'value', $exception->getAttributeValue() );
+		$this->assertSame( 'Attribute "attribute" with value "value" is invalid',
+			$exception->getMessage() );
+		$this->assertNull( $exception->getPrevious() );
 	}
 
 	public function testConstructorWithAllArguments() {
-		$attributeName = 'theGame';
-		$attributeValue = 'youJustLostIt';
-		$message = 'NyanData all the way across the sky!';
-		$previous = new \Exception( 'Onoez!' );
+		$previous = new Exception( 'previous' );
+		$exception = new InvalidAttributeException( 'attribute', 'value', 'customMessage',
+			$previous );
 
-		$exception = new InvalidAttributeException( $attributeName, $attributeValue, $message, $previous );
-
-		$this->assertRequiredFieldsAreSet( $exception, $attributeName, $attributeValue );
-		$this->assertEquals( $message, $exception->getMessage() );
-		$this->assertEquals( $previous, $exception->getPrevious() );
-	}
-
-	protected function assertRequiredFieldsAreSet( InvalidAttributeException $exception, $attributeName, $attributeValue ) {
-		$this->assertEquals( $attributeName, $exception->getAttributeName() );
-		$this->assertEquals( $attributeValue, $exception->getAttributeValue() );
+		$this->assertSame( 'attribute', $exception->getAttributeName() );
+		$this->assertSame( 'value', $exception->getAttributeValue() );
+		$this->assertSame( 'customMessage', $exception->getMessage() );
+		$this->assertSame( $previous, $exception->getPrevious() );
 	}
 
 }
