@@ -5,6 +5,8 @@ namespace Deserializers\Exceptions;
 use Exception;
 
 /**
+ * A deserialization exception that is thrown when an expected array key is not present.
+ *
  * @since 1.0
  *
  * @licence GNU GPL v2+

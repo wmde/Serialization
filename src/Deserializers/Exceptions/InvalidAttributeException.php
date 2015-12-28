@@ -5,6 +5,9 @@ namespace Deserializers\Exceptions;
 use Exception;
 
 /**
+ * A deserialization exception that is thrown when an expected array key is present, but it's value
+ * is not in the expected format.
+ *
  * @since 1.0
  *
  * @licence GNU GPL v2+
