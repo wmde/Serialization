@@ -14,7 +14,7 @@ Also contains various Exceptions and a few basic (de)serialization utilities.
 
 ## Requirements
 
-* PHP 5.3 or later
+* PHP 5.5 or later
 
 ## Installation
 
@@ -47,7 +47,7 @@ its "autoload" section.
 ### Library structure
 
 This component contains two sub parts, one containing serialization related code, the
-other holding deserializaion specific code. The former is located in the Serializers
+other holding deserialization specific code. The former is located in the Serializers
 namespace, while the later resides in the Deserializers one. Both namespaces are PSR-0
 mapped onto the src directory.
 
@@ -63,7 +63,7 @@ a given input.
 
 ### Utilities
 
-A DispatchingSerializer and a DispatcingDeserializer are two generally usable implementations
+A DispatchingSerializer and a DispatchingDeserializer are two generally usable implementations
 of the interfaces that are included in this library. They both do the same thing: contain a
 list of (de)serializers and dispatch calls to the (de)serialize method to the appropriate one.
 This allows for bundling multiple (de)serializers together and enables handling of nested
@@ -86,6 +86,10 @@ Serialization has been written by [Jeroen De Dauw](https://www.mediawiki.org/wik
 as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project](https://wikidata.org/).
 
 ## Release notes
+
+### 3.2.2 (dev)
+
+* Raised required PHP version from 5.3 to 5.5.
 
 ### 3.2.1 (2014-08-19)
 
@@ -131,4 +135,3 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 * [Serialization on Ohloh](https://www.ohloh.net/p/serialization-php)
 * [TravisCI build status](https://travis-ci.org/wmde/Serialization)
 * [Serialization on ScrutinizerCI](https://scrutinizer-ci.com/g/wmde/Serialization/)
-
