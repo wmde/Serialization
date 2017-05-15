@@ -7,7 +7,7 @@ use Deserializers\TypedObjectDeserializer;
 /**
  * @covers Deserializers\TypedObjectDeserializer
  *
- * @licence GNU GPL v2+
+ * @license GPL-2.0+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class TypedObjectDeserializerTest extends \PHPUnit_Framework_TestCase {
