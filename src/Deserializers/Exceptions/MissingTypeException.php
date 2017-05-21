@@ -7,7 +7,7 @@ namespace Deserializers\Exceptions;
  *
  * @since 1.0
  *
- * @licence GNU GPL v2+
+ * @license GPL-2.0+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class MissingTypeException extends DeserializationException {

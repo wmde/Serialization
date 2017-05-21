@@ -9,7 +9,7 @@ use Serializers\Exceptions\UnsupportedObjectException;
  *
  * @group Serialization
  *
- * @licence GNU GPL v2+
+ * @license GPL-2.0+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class UnsupportedObjectExceptionTest extends \PHPUnit_Framework_TestCase {
