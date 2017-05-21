@@ -12,7 +12,7 @@ use Exception;
  */
 class UnsupportedObjectException extends SerializationException {
 
-	protected $unsupportedObject;
+	private $unsupportedObject;
 
 	/**
 	 * @param mixed $unsupportedObject

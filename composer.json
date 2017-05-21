@@ -27,12 +27,10 @@
 		"php": ">=5.5.9"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "~4.8"
+		"phpunit/phpunit": "~4.8",
+		"wikibase/wikibase-codesniffer": "^0.1.0"
 	},
 	"autoload": {
-		"files" : [
-			"Serialization.php"
-		],
 		"psr-4": {
 			"Deserializers\\": "src/Deserializers/",
 			"Serializers\\": "src/Serializers/"
@@ -40,13 +38,14 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "3.2.x-dev"
+			"dev-master": "4.0.x-dev"
 		}
 	},
 	"scripts": {
 		"test": [
 			"@validate --no-interaction",
-			"vendor/bin/phpunit"
+			"phpcs -p -s",
+			"phpunit"
 		]
 	}
 }

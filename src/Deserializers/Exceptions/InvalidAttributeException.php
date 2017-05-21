@@ -16,8 +16,8 @@ use Exception;
  */
 class InvalidAttributeException extends DeserializationException {
 
-	protected $attributeName;
-	protected $attributeValue;
+	private $attributeName;
+	private $attributeValue;
 
 	/**
 	 * @param string $attributeName
