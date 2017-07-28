@@ -9,6 +9,7 @@ composer.lock
 composer.phar
 
 !.gitignore
+!.gitattributes
 !.gitreview
 
 !.travis.yml
