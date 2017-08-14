@@ -24,20 +24,18 @@ class TypedObjectDeserializerTest extends \PHPUnit_Framework_TestCase {
 	 * @param string $typeKey
 	 * @return TypedObjectDeserializer
 	 */
-	protected function newMockDeserializer( $typeKey = self::DEFAULT_TYPE_KEY ) {
+	private function newMockDeserializer( $typeKey = self::DEFAULT_TYPE_KEY ) {
 		return $this->getMockForAbstractClass(
 			'Deserializers\TypedObjectDeserializer',
-			array(
+			[
 				self::DUMMY_TYPE_VALUE,
 				$typeKey
-			)
+			]
 		);
 	}
 
-	protected function newStubSerializationWithTypeKey( $typeKey, $typeValue = self::DUMMY_TYPE_VALUE ) {
-		return array(
-			$typeKey => $typeValue
-		);
+	private function newStubSerializationWithTypeKey( $typeKey ) {
+		return [ $typeKey => self::DUMMY_TYPE_VALUE ];
 	}
 
 	public function testGivenUnknownObjectKey_isDeserializerForReturnsFalse() {
@@ -49,7 +47,8 @@ class TypedObjectDeserializerTest extends \PHPUnit_Framework_TestCase {
 		$specifiedTypeKey = 'myAwesomeTypeKey';
 
 		$serialization = $this->newStubSerializationWithTypeKey( $specifiedTypeKey );
-		$this->assertTrue( $this->newMockDeserializer( $specifiedTypeKey )->isDeserializerFor( $serialization ) );
+		$deserializer = $this->newMockDeserializer( $specifiedTypeKey );
+		$this->assertTrue( $deserializer->isDeserializerFor( $serialization ) );
 	}
 
 }

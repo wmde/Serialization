@@ -15,9 +15,20 @@ use Deserializers\Exceptions\UnsupportedTypeException;
  */
 abstract class TypedObjectDeserializer implements DispatchableDeserializer {
 
-	protected $objectType;
+	/**
+	 * @var string
+	 */
+	private $objectType;
+
+	/**
+	 * @var string
+	 */
 	private $typeKey;
 
+	/**
+	 * @param string $objectType
+	 * @param string $typeKey
+	 */
 	public function __construct( $objectType, $typeKey = 'objectType' ) {
 		$this->objectType = $objectType;
 		$this->typeKey = $typeKey;
@@ -45,15 +56,6 @@ abstract class TypedObjectDeserializer implements DispatchableDeserializer {
 	private function hasObjectType( $serialization ) {
 		return is_array( $serialization )
 			&& array_key_exists( $this->typeKey, $serialization );
-	}
-
-	protected function requireAttributes( array $array ) {
-		$requiredAttributes = func_get_args();
-		array_shift( $requiredAttributes );
-
-		foreach ( $requiredAttributes as $attribute ) {
-			$this->requireAttribute( $array, $attribute );
-		}
 	}
 
 	protected function requireAttribute( array $array, $attributeName ) {

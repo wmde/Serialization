@@ -13,13 +13,13 @@ use Deserializers\DispatchingDeserializer;
 class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstructWithNoDeserializers() {
-		new DispatchingDeserializer( array() );
+		new DispatchingDeserializer( [] );
 		$this->assertTrue( true );
 	}
 
 	public function testCannotConstructWithNonDeserializers() {
 		$this->setExpectedException( 'InvalidArgumentException' );
-		new DispatchingDeserializer( array( 42, 'foobar' ) );
+		new DispatchingDeserializer( [ 42, 'foobar' ] );
 	}
 
 	public function testCanDeserialize() {
@@ -31,7 +31,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 				return $value > 9000;
 			} ) );
 
-		$serializer = new DispatchingDeserializer( array( $subDeserializer ) );
+		$serializer = new DispatchingDeserializer( [ $subDeserializer ] );
 
 		$this->assertFalse( $serializer->isDeserializerFor( 0 ) );
 		$this->assertFalse( $serializer->isDeserializerFor( 42 ) );
@@ -50,7 +50,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 			->method( 'deserialize' )
 			->will( $this->returnValue( 42 ) );
 
-		$serializer = new DispatchingDeserializer( array( $subDeserializer ) );
+		$serializer = new DispatchingDeserializer( [ $subDeserializer ] );
 
 		$this->assertEquals( 42, $serializer->deserialize( 'foo' ) );
 		$this->assertEquals( 42, $serializer->deserialize( null ) );
@@ -63,7 +63,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 			->method( 'isDeserializerFor' )
 			->will( $this->returnValue( false ) );
 
-		$serializer = new DispatchingDeSerializer( array( $subDeserializer ) );
+		$serializer = new DispatchingDeSerializer( [ $subDeserializer ] );
 
 		$this->setExpectedException( 'Deserializers\Exceptions\DeserializationException' );
 		$serializer->deserialize( 0 );
@@ -88,13 +88,17 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 
 		$subDeserializer2 = clone $subDeserializer1;
 
-		$serializer = new DispatchingDeserializer( array( $subDeserializer1, $subDeserializer0, $subDeserializer2 ) );
+		$serializer = new DispatchingDeserializer( [
+			$subDeserializer1,
+			$subDeserializer0,
+			$subDeserializer2,
+		] );
 
 		$this->assertEquals( 42, $serializer->deserialize( 'foo' ) );
 	}
 
 	public function testAddSerializer() {
-		$deserializer = new DispatchingDeserializer( array() );
+		$deserializer = new DispatchingDeserializer( [] );
 
 		$subDeserializer = $this->getMock( 'Deserializers\DispatchableDeserializer' );
 

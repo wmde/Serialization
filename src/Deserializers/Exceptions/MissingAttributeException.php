@@ -15,7 +15,7 @@ use Exception;
  */
 class MissingAttributeException extends DeserializationException {
 
-	protected $attributeName;
+	private $attributeName;
 
 	/**
 	 * @param string $attributeName

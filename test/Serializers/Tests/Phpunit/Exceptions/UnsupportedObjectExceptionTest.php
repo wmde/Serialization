@@ -15,7 +15,7 @@ use Serializers\Exceptions\UnsupportedObjectException;
 class UnsupportedObjectExceptionTest extends \PHPUnit_Framework_TestCase {
 
 	public function testConstructorWithOnlyRequiredArguments() {
-		$object = array( 'the' => 'game' );
+		$object = [ 'the' => 'game' ];
 
 		$exception = new UnsupportedObjectException( $object );
 
@@ -23,7 +23,7 @@ class UnsupportedObjectExceptionTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testConstructorWithAllArguments() {
-		$object = array( 'the' => 'game' );
+		$object = [ 'the' => 'game' ];
 		$message = 'NyanData all the way across the sky!';
 		$previous = new \Exception( 'Onoez!' );
 
@@ -34,7 +34,7 @@ class UnsupportedObjectExceptionTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( $previous, $exception->getPrevious() );
 	}
 
-	protected function assertRequiredFieldsAreSet( UnsupportedObjectException $exception, $object ) {
+	private function assertRequiredFieldsAreSet( UnsupportedObjectException $exception, $object ) {
 		$this->assertEquals( $object, $exception->getUnsupportedObject() );
 	}
 

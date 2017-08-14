@@ -27,11 +27,11 @@ the git repository and take care of loading yourself.
 To add this package as a local, per-project dependency to your project, simply add a
 dependency on `serialization/serialization` to your project's `composer.json` file.
 Here is a minimal example of a `composer.json` file that just defines a dependency on
-Serialization 3.x:
+Serialization 4.x:
 
     {
         "require": {
-            "serialization/serialization": "~3.0"
+            "serialization/serialization": "^4.0"
         }
     }
 
@@ -87,45 +87,52 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 ## Release notes
 
-### 3.2.2 (dev)
+### 4.0.0 (2017-08-13)
 
-* Raised required PHP version from 5.3 to 5.5.
+* Removed the `Serialization_VERSION` constant.
+* Removed `StrategicDeserializer` along with the abstract `TypedDeserializationStrategy` base class.
+* Removed undocumented `TypedObjectDeserializer::requireAttributes`.
+* Declared various protected properties and methods private.
+* Added default messages to `InvalidAttributeException`, `MissingAttributeException`, and
+  `UnsupportedTypeException`.
+* Added documentation to the `Serializer` and `Deserializer` interfaces.
+* Updated minimal required PHP version from 5.3 to 5.5.9.
 
 ### 3.2.1 (2014-08-19)
 
 * Tested against hhvm-nightly
 * Tests now run in strict mode
 
-### 3.2 (2014-05-20)
+### 3.2.0 (2014-05-20)
 
 * Made SerializationException non-abstract
 
-### 3.1 (2014-03-18)
+### 3.1.0 (2014-03-18)
 
 * TypedObjectDeserializer now explicitly implements DispatchableDeserializer.
 
-### 3.0 (2014-03-05)
+### 3.0.0 (2014-03-05)
 
 * Split is(Des/S)erializerFor methods off into new Dispatchable(Des/S)erializer interfaces
 * Changed from classmap based autoloading to PSR-4 based autoloading
 * Improved PHPUnit bootstrap
 
-### 2.2 (2013-12-11)
+### 2.2.0 (2013-12-11)
 
 * Removed custom autoloader in favour of using the declarative system provided by Composer
 
-### 2.1 (2013-11-19)
+### 2.1.0 (2013-11-19)
 
 * The type key in TypedObjectDeserializer can now be specified via a constructor argument
 * TypedObjectDeserializer now has some tests in this component itself
 * The documentation was somewhat improved
 
-### 2.0 (2013-09-05)
+### 2.0.0 (2013-09-05)
 
 * Renamed Serializer::canSerialize to Serializer::isDeserializerFor
 * Renamed Deserializer::canDeserialize to Deserializer::isDeserializerFor
 
-### 1.0 (2013-07-13)
+### 1.0.0 (2013-07-13)
 
 * Initial release.
 

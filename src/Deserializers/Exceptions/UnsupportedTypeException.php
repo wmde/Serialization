@@ -15,7 +15,7 @@ use Exception;
  */
 class UnsupportedTypeException extends DeserializationException {
 
-	protected $type;
+	private $type;
 
 	/**
 	 * @param mixed $type
