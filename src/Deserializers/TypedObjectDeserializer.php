@@ -32,7 +32,6 @@ abstract class TypedObjectDeserializer implements DispatchableDeserializer {
 	public function __construct( $objectType, $typeKey = 'objectType' ) {
 		$this->objectType = $objectType;
 		$this->typeKey = $typeKey;
-
 	}
 
 	protected function assertCanDeserialize( $serialization ) {
@@ -49,7 +48,7 @@ abstract class TypedObjectDeserializer implements DispatchableDeserializer {
 		return $this->hasObjectType( $serialization ) && $this->hasCorrectObjectType( $serialization );
 	}
 
-	private function hasCorrectObjectType( $serialization ) {
+	private function hasCorrectObjectType( array $serialization ) {
 		return $serialization[$this->typeKey] === $this->objectType;
 	}
 
@@ -58,6 +57,13 @@ abstract class TypedObjectDeserializer implements DispatchableDeserializer {
 			&& array_key_exists( $this->typeKey, $serialization );
 	}
 
+	/**
+	 * @deprecated since 4.0, just do your own "if ( array_key_exists( … ) )" or
+	 *  "if ( isset( … ) )" instead
+	 *
+	 * @param array $array
+	 * @param string $attributeName
+	 */
 	protected function requireAttribute( array $array, $attributeName ) {
 		if ( !array_key_exists( $attributeName, $array ) ) {
 			throw new MissingAttributeException(
@@ -66,10 +72,23 @@ abstract class TypedObjectDeserializer implements DispatchableDeserializer {
 		}
 	}
 
+	/**
+	 * @deprecated since 4.0, just do your own "if ( is_array( … ) )" instead
+	 *
+	 * @param array $array
+	 * @param string $attributeName
+	 */
 	protected function assertAttributeIsArray( array $array, $attributeName ) {
 		$this->assertAttributeInternalType( $array, $attributeName, 'array' );
 	}
 
+	/**
+	 * @deprecated since 4.0, just do your own "if ( is_string( … ) )" and such instead
+	 *
+	 * @param array $array
+	 * @param string $attributeName
+	 * @param string $internalType
+	 */
 	protected function assertAttributeInternalType( array $array, $attributeName, $internalType ) {
 		if ( gettype( $array[$attributeName] ) !== $internalType ) {
 			throw new InvalidAttributeException(

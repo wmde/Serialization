@@ -2,7 +2,10 @@
 
 namespace Deserializers\Tests\Phpunit\Deserializers;
 
+use Deserializers\DispatchableDeserializer;
 use Deserializers\DispatchingDeserializer;
+use Deserializers\Exceptions\DeserializationException;
+use InvalidArgumentException;
 
 /**
  * @covers Deserializers\DispatchingDeserializer
@@ -18,12 +21,12 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCannotConstructWithNonDeserializers() {
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->setExpectedException( InvalidArgumentException::class );
 		new DispatchingDeserializer( [ 42, 'foobar' ] );
 	}
 
 	public function testCanDeserialize() {
-		$subDeserializer = $this->getMock( 'Deserializers\DispatchableDeserializer' );
+		$subDeserializer = $this->getMock( DispatchableDeserializer::class );
 
 		$subDeserializer->expects( $this->exactly( 4 ) )
 			->method( 'isDeserializerFor' )
@@ -40,7 +43,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testDeserializeWithDeserializableValues() {
-		$subDeserializer = $this->getMock( 'Deserializers\DispatchableDeserializer' );
+		$subDeserializer = $this->getMock( DispatchableDeserializer::class );
 
 		$subDeserializer->expects( $this->any() )
 			->method( 'isDeserializerFor' )
@@ -57,7 +60,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testSerializeWithUnserializableValue() {
-		$subDeserializer = $this->getMock( 'Deserializers\DispatchableDeserializer' );
+		$subDeserializer = $this->getMock( DispatchableDeserializer::class );
 
 		$subDeserializer->expects( $this->once() )
 			->method( 'isDeserializerFor' )
@@ -65,12 +68,12 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 
 		$serializer = new DispatchingDeSerializer( [ $subDeserializer ] );
 
-		$this->setExpectedException( 'Deserializers\Exceptions\DeserializationException' );
+		$this->setExpectedException( DeserializationException::class );
 		$serializer->deserialize( 0 );
 	}
 
 	public function testSerializeWithMultipleSubSerializers() {
-		$subDeserializer0 = $this->getMock( 'Deserializers\DispatchableDeserializer' );
+		$subDeserializer0 = $this->getMock( DispatchableDeserializer::class );
 
 		$subDeserializer0->expects( $this->any() )
 			->method( 'isDeserializerFor' )
@@ -80,7 +83,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 			->method( 'deserialize' )
 			->will( $this->returnValue( 42 ) );
 
-		$subDeserializer1 = $this->getMock( 'Deserializers\DispatchableDeserializer' );
+		$subDeserializer1 = $this->getMock( DispatchableDeserializer::class );
 
 		$subDeserializer1->expects( $this->any() )
 			->method( 'isDeserializerFor' )
@@ -100,7 +103,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 	public function testAddSerializer() {
 		$deserializer = new DispatchingDeserializer( [] );
 
-		$subDeserializer = $this->getMock( 'Deserializers\DispatchableDeserializer' );
+		$subDeserializer = $this->getMock( DispatchableDeserializer::class );
 
 		$subDeserializer->expects( $this->any() )
 			->method( 'isDeserializerFor' )
