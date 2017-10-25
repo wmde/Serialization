@@ -87,7 +87,7 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 ## Release notes
 
-### 4.0.0 (2017-10-24)
+### 4.0.0 (2017-10-25)
 
 * Removed the `Serialization_VERSION` constant.
 * Removed underspecified `StrategicDeserializer` along with the abstract
