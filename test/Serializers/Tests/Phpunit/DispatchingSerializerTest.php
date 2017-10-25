@@ -2,7 +2,10 @@
 
 namespace Serializers\Tests\Phpunit\Serializers;
 
+use InvalidArgumentException;
+use Serializers\DispatchableSerializer;
 use Serializers\DispatchingSerializer;
+use Serializers\Exceptions\UnsupportedObjectException;
 
 /**
  * @covers Serializers\DispatchingSerializer
@@ -20,18 +23,18 @@ class DispatchingSerializerTest extends \PHPUnit_Framework_TestCase {
 		$this->assertFalse( $serializer->isSerializerFor( 'foo' ) );
 		$this->assertFalse( $serializer->isSerializerFor( null ) );
 
-		$this->setExpectedException( 'Serializers\Exceptions\UnsupportedObjectException' );
+		$this->setExpectedException( UnsupportedObjectException::class );
 
 		$serializer->serialize( 'foo' );
 	}
 
 	public function testConstructWithInvalidArgumentsCausesException() {
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->setExpectedException( InvalidArgumentException::class );
 		new DispatchingSerializer( [ new \stdClass() ] );
 	}
 
 	public function testCanSerialize() {
-		$subSerializer = $this->getMock( 'Serializers\DispatchableSerializer' );
+		$subSerializer = $this->getMock( DispatchableSerializer::class );
 
 		$subSerializer->expects( $this->exactly( 4 ) )
 			->method( 'isSerializerFor' )
@@ -48,7 +51,7 @@ class DispatchingSerializerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testSerializeWithSerializableValues() {
-		$subSerializer = $this->getMock( 'Serializers\DispatchableSerializer' );
+		$subSerializer = $this->getMock( DispatchableSerializer::class );
 
 		$subSerializer->expects( $this->any() )
 			->method( 'isSerializerFor' )
@@ -65,7 +68,7 @@ class DispatchingSerializerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testSerializeWithUnserializableValue() {
-		$subSerializer = $this->getMock( 'Serializers\DispatchableSerializer' );
+		$subSerializer = $this->getMock( DispatchableSerializer::class );
 
 		$subSerializer->expects( $this->once() )
 			->method( 'isSerializerFor' )
@@ -73,12 +76,12 @@ class DispatchingSerializerTest extends \PHPUnit_Framework_TestCase {
 
 		$serializer = new DispatchingSerializer( [ $subSerializer ] );
 
-		$this->setExpectedException( 'Serializers\Exceptions\UnsupportedObjectException' );
+		$this->setExpectedException( UnsupportedObjectException::class );
 		$serializer->serialize( 0 );
 	}
 
 	public function testSerializeWithMultipleSubSerializers() {
-		$subSerializer0 = $this->getMock( 'Serializers\DispatchableSerializer' );
+		$subSerializer0 = $this->getMock( DispatchableSerializer::class );
 
 		$subSerializer0->expects( $this->any() )
 			->method( 'isSerializerFor' )
@@ -88,7 +91,7 @@ class DispatchingSerializerTest extends \PHPUnit_Framework_TestCase {
 			->method( 'serialize' )
 			->will( $this->returnValue( 42 ) );
 
-		$subSerializer1 = $this->getMock( 'Serializers\DispatchableSerializer' );
+		$subSerializer1 = $this->getMock( DispatchableSerializer::class );
 
 		$subSerializer1->expects( $this->any() )
 			->method( 'isSerializerFor' )
@@ -104,7 +107,7 @@ class DispatchingSerializerTest extends \PHPUnit_Framework_TestCase {
 	public function testAddSerializer() {
 		$serializer = new DispatchingSerializer( [] );
 
-		$subSerializer = $this->getMock( 'Serializers\DispatchableSerializer' );
+		$subSerializer = $this->getMock( DispatchableSerializer::class );
 
 		$subSerializer->expects( $this->any() )
 			->method( 'isSerializerFor' )

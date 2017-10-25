@@ -26,7 +26,7 @@ class TypedObjectDeserializerTest extends \PHPUnit_Framework_TestCase {
 	 */
 	private function newMockDeserializer( $typeKey = self::DEFAULT_TYPE_KEY ) {
 		return $this->getMockForAbstractClass(
-			'Deserializers\TypedObjectDeserializer',
+			TypedObjectDeserializer::class,
 			[
 				self::DUMMY_TYPE_VALUE,
 				$typeKey

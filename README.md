@@ -87,12 +87,27 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 ## Release notes
 
-### 4.0.0 (2017-08-13)
+### 4.0.0 (2017-10-25)
 
 * Removed the `Serialization_VERSION` constant.
-* Removed `StrategicDeserializer` along with the abstract `TypedDeserializationStrategy` base class.
+* Removed underspecified `StrategicDeserializer` along with the abstract
+  `TypedDeserializationStrategy` base class.
 * Removed undocumented `TypedObjectDeserializer::requireAttributes`.
-* Declared various protected properties and methods private.
+* Declared various protected properties and methods private:
+	* `DispatchingDeserializer::$deserializers`
+	* `DispatchingDeserializer::assertAreDeserializers`
+	* `DispatchingSerializer::$serializers`
+	* `DispatchingSerializer::assertAreSerializers`
+	* `InvalidAttributeException::$attributeName`
+	* `InvalidAttributeException::$attributeValue`
+	* `MissingAttributeException::$attributeName`
+	* `TypedObjectDeserializer::$objectType`
+	* `UnsupportedObjectException::$unsupportedObject`
+	* `UnsupportedTypeException::$unsupportedType`
+* Deprecated pure utility functions on `TypedObjectDeserializer`:
+	* `assertAttributeInternalType`
+	* `assertAttributeIsArray`
+	* `requireAttribute`
 * Added default messages to `InvalidAttributeException`, `MissingAttributeException`, and
   `UnsupportedTypeException`.
 * Added documentation to the `Serializer` and `Deserializer` interfaces.
