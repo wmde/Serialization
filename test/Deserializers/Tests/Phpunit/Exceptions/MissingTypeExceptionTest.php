@@ -9,9 +9,9 @@ use PHPUnit_Framework_TestCase;
 /**
  * @covers Deserializers\Exceptions\MissingTypeException
  *
- * @license GPL-2.0+
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
- * @author Thiemo Mättig
+ * @author Thiemo Kreuz
  */
 class MissingTypeExceptionTest extends PHPUnit_Framework_TestCase {
 
