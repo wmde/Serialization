@@ -66,7 +66,7 @@ class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
 			->method( 'isDeserializerFor' )
 			->will( $this->returnValue( false ) );
 
-		$serializer = new DispatchingDeSerializer( [ $subDeserializer ] );
+		$serializer = new DispatchingDeserializer( [ $subDeserializer ] );
 
 		$this->setExpectedException( DeserializationException::class );
 		$serializer->deserialize( 0 );
