@@ -55,11 +55,12 @@ mapped onto the src directory.
 
 The primary thing provided by this library are the Serializer and Deserializer namespaces.
 A set of Exceptions each process typically can encounter are also provided, and are located
-in respective Exceptions namespaces. They all derive from (Des/S)erializationException.
+in respective Exceptions namespaces. They all derive from
+`SerializationException`/`DeserializationException`.
 
-Both interfaces define two methods: a (de)serialize method that does the actual work, and
-a can(Des/S)erialize method that allows finding out if a given (de)serializer can process
-a given input.
+The main interfaces define the `serialize`/`deserialize` methods that do the actual work.
+In addition there are interfaces with a `isSerializerFor`/`isDeserializerFor` method
+respectively that allows finding out if a given (de)serializer can process a given input.
 
 ### Utilities
 
