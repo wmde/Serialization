@@ -91,6 +91,10 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 * Updated minimal required PHP version from 5.5.9 to 7.0.
   In particular, HHVM is no longer supported.
+* Removed pure utility functions on `TypedObjectDeserializer` (deprecated in 4.0.0):
+	* `assertAttributeInternalType`
+	* `assertAttributeIsArray`
+	* `requireAttribute`
 
 ### 4.0.0 (2017-10-25)
 
