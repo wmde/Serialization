@@ -87,7 +87,7 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 ## Release notes
 
-### 5.0.0 (2020-03-18)
+### 5.0.0 (dev)
 
 * Updated minimal required PHP version from 5.5.9 to 7.0.
   In particular, HHVM is no longer supported.
