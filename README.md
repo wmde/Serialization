@@ -14,7 +14,7 @@ Also contains various Exceptions and a few basic (de)serialization utilities.
 
 ## Requirements
 
-* PHP 5.5 or later
+* PHP 7.0 or later
 
 ## Installation
 
@@ -86,6 +86,11 @@ Serialization has been written by [Jeroen De Dauw](https://www.mediawiki.org/wik
 as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project](https://wikidata.org/).
 
 ## Release notes
+
+### 5.0.0 (2020-03-18)
+
+* Updated minimal required PHP version from 5.5.9 to 7.0.
+  In particular, HHVM is no longer supported.
 
 ### 4.0.0 (2017-10-25)
 
