@@ -4,7 +4,6 @@ namespace Deserializers\Tests\Phpunit\Exceptions;
 
 use Deserializers\Exceptions\DeserializationException;
 use Exception;
-use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Deserializers\Exceptions\DeserializationException
@@ -13,7 +12,7 @@ use PHPUnit_Framework_TestCase;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  * @author Thiemo Kreuz
  */
-class DeserializationExceptionTest extends PHPUnit_Framework_TestCase {
+class DeserializationExceptionTest extends \PHPUnit\Framework\TestCase {
 
 	public function testConstructorWithOnlyRequiredArguments() {
 		$exception = new DeserializationException();

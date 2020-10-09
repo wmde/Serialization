@@ -4,7 +4,6 @@ namespace Deserializers\Tests\Phpunit\Exceptions;
 
 use Deserializers\Exceptions\MissingAttributeException;
 use Exception;
-use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Deserializers\Exceptions\MissingAttributeException
@@ -13,7 +12,7 @@ use PHPUnit_Framework_TestCase;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  * @author Thiemo Kreuz
  */
-class MissingAttributeExceptionTest extends PHPUnit_Framework_TestCase {
+class MissingAttributeExceptionTest extends \PHPUnit\Framework\TestCase {
 
 	public function testConstructorWithOnlyRequiredArguments() {
 		$exception = new MissingAttributeException( 'attribute' );
