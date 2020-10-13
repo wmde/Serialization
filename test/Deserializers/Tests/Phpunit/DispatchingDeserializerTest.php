@@ -13,7 +13,7 @@ use InvalidArgumentException;
  * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class DispatchingDeserializerTest extends \PHPUnit_Framework_TestCase {
+class DispatchingDeserializerTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstructWithNoDeserializers() {
 		new DispatchingDeserializer( [] );

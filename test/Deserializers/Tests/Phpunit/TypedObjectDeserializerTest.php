@@ -10,10 +10,10 @@ use Deserializers\TypedObjectDeserializer;
  * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class TypedObjectDeserializerTest extends \PHPUnit_Framework_TestCase {
+class TypedObjectDeserializerTest extends \PHPUnit\Framework\TestCase {
 
-	const DEFAULT_TYPE_KEY = 'objectType';
-	const DUMMY_TYPE_VALUE = 'someType';
+	private const DEFAULT_TYPE_KEY = 'objectType';
+	private const DUMMY_TYPE_VALUE = 'someType';
 
 	public function testGivenDefaultObjectKey_isDeserializerForReturnsTrue() {
 		$serialization = $this->newStubSerializationWithTypeKey( self::DEFAULT_TYPE_KEY );

@@ -15,7 +15,7 @@ use Serializers\Exceptions\UnsupportedObjectException;
  * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class DispatchingSerializerTest extends \PHPUnit_Framework_TestCase {
+class DispatchingSerializerTest extends \PHPUnit\Framework\TestCase {
 
 	public function testConstructWithNoSerializers() {
 		$serializer = new DispatchingSerializer( [] );

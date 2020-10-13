@@ -4,7 +4,6 @@ namespace Deserializers\Tests\Phpunit\Exceptions;
 
 use Deserializers\Exceptions\MissingTypeException;
 use Exception;
-use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Deserializers\Exceptions\MissingTypeException
@@ -13,7 +12,7 @@ use PHPUnit_Framework_TestCase;
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  * @author Thiemo Kreuz
  */
-class MissingTypeExceptionTest extends PHPUnit_Framework_TestCase {
+class MissingTypeExceptionTest extends \PHPUnit\Framework\TestCase {
 
 	public function testConstructorWithOnlyRequiredArguments() {
 		$exception = new MissingTypeException();
