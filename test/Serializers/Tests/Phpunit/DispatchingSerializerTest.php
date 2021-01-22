@@ -38,7 +38,7 @@ class DispatchingSerializerTest extends \PHPUnit\Framework\TestCase {
 
 		$subSerializer->expects( $this->exactly( 4 ) )
 			->method( 'isSerializerFor' )
-			->will( $this->returnCallback( function( $value ) {
+			->will( $this->returnCallback( function ( $value ) {
 				return $value > 9000;
 			} ) );
 

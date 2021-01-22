@@ -30,7 +30,7 @@ class DispatchingDeserializerTest extends \PHPUnit\Framework\TestCase {
 
 		$subDeserializer->expects( $this->exactly( 4 ) )
 			->method( 'isDeserializerFor' )
-			->will( $this->returnCallback( function( $value ) {
+			->will( $this->returnCallback( function ( $value ) {
 				return $value > 9000;
 			} ) );
 
