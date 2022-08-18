@@ -14,7 +14,7 @@ Also contains various Exceptions and a few basic (de)serialization utilities.
 
 ## Requirements
 
-* PHP 7.0 or later
+* PHP 7.2 or later
 
 ## Installation
 
