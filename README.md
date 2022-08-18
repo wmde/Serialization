@@ -48,7 +48,7 @@ its "autoload" section.
 
 This component contains two sub parts, one containing serialization related code, the
 other holding deserialization specific code. The former is located in the Serializers
-namespace, while the later resides in the Deserializers one. Both namespaces are PSR-0
+namespace, while the latter resides in the Deserializers one. Both namespaces are PSR-0
 mapped onto the src directory.
 
 ### Interfaces
