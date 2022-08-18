@@ -3,6 +3,7 @@
 namespace Serializers\Tests\Phpunit\Exceptions;
 
 use Serializers\Exceptions\UnsupportedObjectException;
+use TypeError;
 
 /**
  * @covers Serializers\Exceptions\UnsupportedObjectException
@@ -26,6 +27,18 @@ class UnsupportedObjectExceptionTest extends \PHPUnit\Framework\TestCase {
 		$object = [ 'the' => 'game' ];
 		$message = 'NyanData all the way across the sky!';
 		$previous = new \Exception( 'Onoez!' );
+
+		$exception = new UnsupportedObjectException( $object, $message, $previous );
+
+		$this->assertRequiredFieldsAreSet( $exception, $object );
+		$this->assertEquals( $message, $exception->getMessage() );
+		$this->assertEquals( $previous, $exception->getPrevious() );
+	}
+
+	public function testConstructorWithPreviousTypeError() {
+		$object = [ 'the' => 'game' ];
+		$message = 'NyanData all the way across the sky!';
+		$previous = new TypeError( 'Onoez!' );
 
 		$exception = new UnsupportedObjectException( $object, $message, $previous );
 

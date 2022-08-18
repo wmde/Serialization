@@ -4,6 +4,7 @@ namespace Deserializers\Tests\Phpunit\Exceptions;
 
 use Deserializers\Exceptions\UnsupportedTypeException;
 use Exception;
+use TypeError;
 
 /**
  * @covers Deserializers\Exceptions\UnsupportedTypeException
@@ -24,6 +25,15 @@ class UnsupportedTypeExceptionTest extends \PHPUnit\Framework\TestCase {
 
 	public function testConstructorWithAllArguments() {
 		$previous = new Exception( 'previous' );
+		$exception = new UnsupportedTypeException( 'type', 'customMessage', $previous );
+
+		$this->assertSame( 'type', $exception->getUnsupportedType() );
+		$this->assertSame( 'customMessage', $exception->getMessage() );
+		$this->assertSame( $previous, $exception->getPrevious() );
+	}
+
+	public function testConstructorWithPreviousTypeError() {
+		$previous = new TypeError( 'previous' );
 		$exception = new UnsupportedTypeException( 'type', 'customMessage', $previous );
 
 		$this->assertSame( 'type', $exception->getUnsupportedType() );
