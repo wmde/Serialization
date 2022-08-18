@@ -4,6 +4,7 @@ namespace Deserializers\Tests\Phpunit\Exceptions;
 
 use Deserializers\Exceptions\InvalidAttributeException;
 use Exception;
+use TypeError;
 
 /**
  * @covers Deserializers\Exceptions\InvalidAttributeException
@@ -26,8 +27,21 @@ class InvalidAttributeExceptionTest extends \PHPUnit\Framework\TestCase {
 
 	public function testConstructorWithAllArguments() {
 		$previous = new Exception( 'previous' );
-		$exception = new InvalidAttributeException( 'attribute', 'value', 'customMessage',
-			$previous );
+		$exception = new InvalidAttributeException(
+			'attribute', 'value', 'customMessage', $previous
+		);
+
+		$this->assertSame( 'attribute', $exception->getAttributeName() );
+		$this->assertSame( 'value', $exception->getAttributeValue() );
+		$this->assertSame( 'customMessage', $exception->getMessage() );
+		$this->assertSame( $previous, $exception->getPrevious() );
+	}
+
+	public function testConstructorWithPreviousTypeError() {
+		$previous = new TypeError( 'previous' );
+		$exception = new InvalidAttributeException(
+			'attribute', 'value', 'customMessage', $previous
+		);
 
 		$this->assertSame( 'attribute', $exception->getAttributeName() );
 		$this->assertSame( 'value', $exception->getAttributeValue() );

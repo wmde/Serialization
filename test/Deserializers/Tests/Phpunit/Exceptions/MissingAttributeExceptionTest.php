@@ -4,6 +4,7 @@ namespace Deserializers\Tests\Phpunit\Exceptions;
 
 use Deserializers\Exceptions\MissingAttributeException;
 use Exception;
+use TypeError;
 
 /**
  * @covers Deserializers\Exceptions\MissingAttributeException
@@ -24,6 +25,15 @@ class MissingAttributeExceptionTest extends \PHPUnit\Framework\TestCase {
 
 	public function testConstructorWithAllArguments() {
 		$previous = new Exception( 'previous' );
+		$exception = new MissingAttributeException( 'attribute', 'customMessage', $previous );
+
+		$this->assertSame( 'attribute', $exception->getAttributeName() );
+		$this->assertSame( 'customMessage', $exception->getMessage() );
+		$this->assertSame( $previous, $exception->getPrevious() );
+	}
+
+	public function testConstructorWithPreviousTypeError() {
+		$previous = new TypeError( 'previous' );
 		$exception = new MissingAttributeException( 'attribute', 'customMessage', $previous );
 
 		$this->assertSame( 'attribute', $exception->getAttributeName() );
