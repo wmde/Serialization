@@ -12,10 +12,10 @@ namespace Deserializers\Exceptions;
  */
 class MissingTypeException extends DeserializationException {
 
-  public function __construct( $message = '', \Exception $previous = null ) {
-    if ( $message === '' ) {
-      $message = 'Type is missing';
-    }
+	public function __construct( $message = '', \Exception $previous = null ) {
+		if ( $message === '' ) {
+			$message = 'Type is missing';
+		}
 		parent::__construct( $message, $previous );
 	}
 }
