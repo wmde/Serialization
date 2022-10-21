@@ -95,6 +95,7 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 * Type hinted the `$previous` parameter as `Throwable` instead of `Exception`
 * Updated minimum required PHP version from `5.5.9` to `7.2` (HHVM is no longer supported)
 * Updated to `GPL-2.0-or-later` according to SPDX v3
+* Added a default message to the MissingTypeException
 
 ### 4.0.0 (2017-10-25)
 
