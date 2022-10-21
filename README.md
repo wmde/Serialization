@@ -90,8 +90,11 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 ### 5.0.0 (dev)
 
-* Updated minimal required PHP version from 5.5.9 to 7.0.
-  In particular, HHVM is no longer supported.
+### 4.1.0 (TBD)
+
+* Type hinted the `$previous` parameter as `Throwable` instead of `Exception`
+* Updated minimum required PHP version from `5.5.9` to `7.2` (HHVM is no longer supported)
+* Updated to `GPL-2.0-or-later` according to SPDX v3
 
 ### 4.0.0 (2017-10-25)
 
