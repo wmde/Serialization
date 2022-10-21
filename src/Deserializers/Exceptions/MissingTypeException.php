@@ -2,6 +2,8 @@
 
 namespace Deserializers\Exceptions;
 
+use Throwable;
+
 /**
  * Indicates the objectType key is missing in the serialization.
  *
@@ -12,4 +14,7 @@ namespace Deserializers\Exceptions;
  */
 class MissingTypeException extends DeserializationException {
 
+	public function __construct( string $message = 'Type is missing', Throwable $previous = null ) {
+		parent::__construct( $message, $previous );
+	}
 }

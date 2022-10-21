@@ -18,7 +18,7 @@ class MissingTypeExceptionTest extends \PHPUnit\Framework\TestCase {
 	public function testConstructorWithOnlyRequiredArguments() {
 		$exception = new MissingTypeException();
 
-		$this->assertSame( '', $exception->getMessage() );
+		$this->assertSame( 'Type is missing', $exception->getMessage() );
 		$this->assertNull( $exception->getPrevious() );
 	}
 
