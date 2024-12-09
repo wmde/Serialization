@@ -14,7 +14,7 @@ use Throwable;
  */
 class MissingTypeException extends DeserializationException {
 
-	public function __construct( string $message = 'Type is missing', Throwable $previous = null ) {
+	public function __construct( string $message = 'Type is missing', ?Throwable $previous = null ) {
 		parent::__construct( $message, $previous );
 	}
 }

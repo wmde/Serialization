@@ -22,7 +22,7 @@ class UnsupportedTypeException extends DeserializationException {
 	 * @param string $message
 	 * @param Throwable|null $previous
 	 */
-	public function __construct( $type, $message = '', Throwable $previous = null ) {
+	public function __construct( $type, $message = '', ?Throwable $previous = null ) {
 		$this->type = $type;
 
 		if ( $message === '' && is_scalar( $type ) ) {

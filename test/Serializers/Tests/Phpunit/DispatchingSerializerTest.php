@@ -38,9 +38,9 @@ class DispatchingSerializerTest extends \PHPUnit\Framework\TestCase {
 
 		$subSerializer->expects( $this->exactly( 4 ) )
 			->method( 'isSerializerFor' )
-			->will( $this->returnCallback( function ( $value ) {
+			->willReturnCallback( static function ( $value ) {
 				return $value > 9000;
-			} ) );
+			} );
 
 		$serializer = new DispatchingSerializer( [ $subSerializer ] );
 
@@ -55,11 +55,11 @@ class DispatchingSerializerTest extends \PHPUnit\Framework\TestCase {
 
 		$subSerializer->expects( $this->any() )
 			->method( 'isSerializerFor' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$subSerializer->expects( $this->any() )
 			->method( 'serialize' )
-			->will( $this->returnValue( 42 ) );
+			->willReturn( 42 );
 
 		$serializer = new DispatchingSerializer( [ $subSerializer ] );
 
@@ -72,7 +72,7 @@ class DispatchingSerializerTest extends \PHPUnit\Framework\TestCase {
 
 		$subSerializer->expects( $this->once() )
 			->method( 'isSerializerFor' )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$serializer = new DispatchingSerializer( [ $subSerializer ] );
 
@@ -85,17 +85,17 @@ class DispatchingSerializerTest extends \PHPUnit\Framework\TestCase {
 
 		$subSerializer0->expects( $this->any() )
 			->method( 'isSerializerFor' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$subSerializer0->expects( $this->any() )
 			->method( 'serialize' )
-			->will( $this->returnValue( 42 ) );
+			->willReturn( 42 );
 
 		$subSerializer1 = $this->createMock( DispatchableSerializer::class );
 
 		$subSerializer1->expects( $this->any() )
 			->method( 'isSerializerFor' )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$subSerializer2 = clone $subSerializer1;
 
@@ -111,11 +111,11 @@ class DispatchingSerializerTest extends \PHPUnit\Framework\TestCase {
 
 		$subSerializer->expects( $this->any() )
 			->method( 'isSerializerFor' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$subSerializer->expects( $this->any() )
 			->method( 'serialize' )
-			->will( $this->returnValue( 42 ) );
+			->willReturn( 42 );
 
 		$serializer->addSerializer( $subSerializer );
 

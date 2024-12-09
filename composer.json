@@ -24,11 +24,11 @@
 		"irc": "irc://irc.freenode.net/wikidata"
 	},
 	"require": {
-		"php": ">=7.2"
+		"php": ">=7.4"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^8.5.14",
-		"mediawiki/mediawiki-codesniffer": "34.0.0"
+		"mediawiki/mediawiki-codesniffer": "^45"
 	},
 	"autoload": {
 		"psr-4": {
@@ -48,5 +48,10 @@
 			"phpcs -p -s",
 			"phpunit"
 		]
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
 	}
 }

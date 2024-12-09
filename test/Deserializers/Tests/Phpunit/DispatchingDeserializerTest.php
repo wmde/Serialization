@@ -30,9 +30,9 @@ class DispatchingDeserializerTest extends \PHPUnit\Framework\TestCase {
 
 		$subDeserializer->expects( $this->exactly( 4 ) )
 			->method( 'isDeserializerFor' )
-			->will( $this->returnCallback( function ( $value ) {
+			->willReturnCallback( static function ( $value ) {
 				return $value > 9000;
-			} ) );
+			} );
 
 		$serializer = new DispatchingDeserializer( [ $subDeserializer ] );
 
@@ -47,11 +47,11 @@ class DispatchingDeserializerTest extends \PHPUnit\Framework\TestCase {
 
 		$subDeserializer->expects( $this->any() )
 			->method( 'isDeserializerFor' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$subDeserializer->expects( $this->any() )
 			->method( 'deserialize' )
-			->will( $this->returnValue( 42 ) );
+			->willReturn( 42 );
 
 		$serializer = new DispatchingDeserializer( [ $subDeserializer ] );
 
@@ -64,7 +64,7 @@ class DispatchingDeserializerTest extends \PHPUnit\Framework\TestCase {
 
 		$subDeserializer->expects( $this->once() )
 			->method( 'isDeserializerFor' )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$serializer = new DispatchingDeserializer( [ $subDeserializer ] );
 
@@ -77,17 +77,17 @@ class DispatchingDeserializerTest extends \PHPUnit\Framework\TestCase {
 
 		$subDeserializer0->expects( $this->any() )
 			->method( 'isDeserializerFor' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$subDeserializer0->expects( $this->any() )
 			->method( 'deserialize' )
-			->will( $this->returnValue( 42 ) );
+			->willReturn( 42 );
 
 		$subDeserializer1 = $this->createMock( DispatchableDeserializer::class );
 
 		$subDeserializer1->expects( $this->any() )
 			->method( 'isDeserializerFor' )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$subDeserializer2 = clone $subDeserializer1;
 
@@ -107,11 +107,11 @@ class DispatchingDeserializerTest extends \PHPUnit\Framework\TestCase {
 
 		$subDeserializer->expects( $this->any() )
 			->method( 'isDeserializerFor' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$subDeserializer->expects( $this->any() )
 			->method( 'deserialize' )
-			->will( $this->returnValue( 42 ) );
+			->willReturn( 42 );
 
 		$deserializer->addDeserializer( $subDeserializer );
 

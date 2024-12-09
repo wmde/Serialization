@@ -29,7 +29,7 @@ class InvalidAttributeException extends DeserializationException {
 		$attributeName,
 		$attributeValue,
 		$message = '',
-		Throwable $previous = null
+		?Throwable $previous = null
 	) {
 		$this->attributeName = $attributeName;
 		$this->attributeValue = $attributeValue;
