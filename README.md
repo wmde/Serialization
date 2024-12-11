@@ -14,7 +14,7 @@ Also contains various Exceptions and a few basic (de)serialization utilities.
 
 ## Requirements
 
-* PHP 7.2 or later
+* PHP 7.4 or later
 
 ## Installation
 
@@ -90,8 +90,11 @@ as [Wikimedia Germany](https://wikimedia.de) employee for the [Wikidata project]
 
 ### 5.0.0 (dev)
 
-### 4.1.0 (TBD)
+### 4.1.0 (2024-12-11)
 
+* Drop support for PHP 7.2, 7.3
+* Upgrade codesniffer rules to current `mediawiki/mediawiki-codesniffer` version (45.0.0)
+* Make nullable type parameter declarations explicit for compatibility with PHP 8.4
 * Type hinted the `$previous` parameter as `Throwable` instead of `Exception`
 * Updated minimum required PHP version from `5.5.9` to `7.2` (HHVM is no longer supported)
 * Updated to `GPL-2.0-or-later` according to SPDX v3
