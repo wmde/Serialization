@@ -22,7 +22,7 @@ class MissingAttributeException extends DeserializationException {
 	 * @param string $message
 	 * @param Throwable|null $previous
 	 */
-	public function __construct( $attributeName, $message = '', Throwable $previous = null ) {
+	public function __construct( $attributeName, $message = '', ?Throwable $previous = null ) {
 		$this->attributeName = $attributeName;
 
 		if ( $message === '' ) {
