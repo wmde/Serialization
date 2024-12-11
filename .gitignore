@@ -12,5 +12,6 @@ composer.phar
 !.gitattributes
 !.gitreview
 
+!.github
 !.travis.yml
 !.scrutinizer.yml
